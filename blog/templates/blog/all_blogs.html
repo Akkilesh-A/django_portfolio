@@ -9,9 +9,9 @@
     <h1>All Blogs</h1>
     {% for blog in blogs %}
         <img src={{blog.image.url}} height="400" />
-        <h2>{{blog.title}}</h2>
-        <h5>{{blog.date}}</h5>
-        <p>{{blog.description}}</p>
+        <a href="{% url 'detail' blog.id %}"><h2>{{ blog.title }}</h2></a>
+        <h5>{{ blog.date }}</h5>
+        <p>{{ blog.description }}</p>
     {% endfor %}
 </body>
 </html>
