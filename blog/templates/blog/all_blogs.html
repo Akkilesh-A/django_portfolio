@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'portfolio/base.html' %}
+{% block content %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +7,13 @@
 </head>
 <body>
     <h1>All Blogs</h1>
+    <h2>Total Number of Blog {{ blogs.count|pluralize }} - {{ blogs.count }}</h2>
     {% for blog in blogs %}
         <img src={{blog.image.url}} height="400" />
         <a href="{% url 'detail' blog.id %}"><h2>{{ blog.title }}</h2></a>
-        <h5>{{ blog.date }}</h5>
-        <p>{{ blog.description }}</p>
+        <h5>{{ blog.date|date:'F jS Y' }}</h5>
+        <p>{{ blog.description|striptags|truncatechars:30 }}</p>
     {% endfor %}
 </body>
 </html>
+{% endblock %}

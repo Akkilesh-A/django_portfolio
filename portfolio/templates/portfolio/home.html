@@ -1,29 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'portfolio/base.html' %}
+{% block content %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akkil's Portfolio</title>
     {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/home.css' %}">
 </head>
 <body>
-    <h2>Presenting to you,</h2>
-    <h1>DJANGO based portfolio</h1>
-    <a href="{% static 'portfolio/Akkilesh_CV_September-24.pdf' %}">Resume</a>
-    <div>
+    <div class="home" style="display: flex;">
         <img src="{% static 'portfolio/me.jpg' %}" height="400"/>
     </div>
-    <div>
+    <h2>Projects</h2>
+    <hr />
+    <div class="project-card">
         {% for project in projects %}
-            <h2>{{ project.title }}</h2>
-            <p>{{ project.description }}</p>
-            <img src="{{project.image.url}}" height="400"/>
-            {% if project.url %}
-                <a href="{{ project.url }}">
-                    Link
-                </a>
-            {% endif %}
+            <div style="padding-right: 20px;">
+                <div>
+                    <img src="{{project.image.url}}" height="300" width="300"/>
+                </div>
+                <h2>{{ project.title }}</h2>
+                <div class="project-description">
+                    <p style="padding-right: 10px;">{{ project.description }}</p>
+                    {% if project.url %}
+                        <a href="{{ project.url }}">
+                            Link
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
         {% endfor %}
     </div>
 </body>
 </html>
+
+{% endblock %}

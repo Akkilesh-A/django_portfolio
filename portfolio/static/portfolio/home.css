@@ -1,0 +1,17 @@
+.home{
+    display: flex;
+    width: 100vw;
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.project-card{   
+    display: flex; 
+}
+
+.project-description{
+    display: flex;
+    justify-items: center;
+}

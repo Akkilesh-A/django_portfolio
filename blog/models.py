@@ -6,3 +6,6 @@ class Blog(models.Model):
     description=models.CharField(max_length=500)
     date=models.DateField()
     image=models.ImageField(upload_to='blogs/images/',default="none")
+    
+    def __str__(self):
+        return self.title
