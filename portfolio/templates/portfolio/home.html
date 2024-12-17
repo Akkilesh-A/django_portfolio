@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akkil's Portfolio</title>
+    {% load static %}
 </head>
 <body>
     <h2>Presenting to you,</h2>
     <h1>DJANGO based portfolio</h1>
+    <a href="{% static 'portfolio/Akkilesh_CV_September-24.pdf' %}">Resume</a>
+    <div>
+        <img src="{% static 'portfolio/me.jpg' %}" height="400"/>
+    </div>
     <div>
         {% for project in projects %}
             <h2>{{ project.title }}</h2>
